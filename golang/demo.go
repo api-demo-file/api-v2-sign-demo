@@ -48,7 +48,7 @@ func main() {
 
 	// 时区必须使用 UTC
 	// It must use UTC as timezone.
-	parameters["timestamp"] = time.Now().Format("2006-01-02T15:04:05")
+	parameters["timestamp"] = time.Now().In(time.UTC).Format("2006-01-02T15:04:05")
 
 	// 生成签名
 	// Generating signature.

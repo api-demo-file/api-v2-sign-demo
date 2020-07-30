@@ -27,7 +27,7 @@ var (
 
 func main() {
 	if len(os.Args)<4 {
-		fmt.Println("usage: php demo.php {Host} {Access Key} {Secret}")
+		fmt.Println("usage: go run demo.go {Host} {Access Key} {Secret}")
 		os.Exit(1)
 	}
 

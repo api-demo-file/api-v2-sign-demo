@@ -47,6 +47,9 @@ async function main(){
 	let signature = getSign(parameters, secret) ;
 	parameters["signature"] = signature;
 
+	let fdata = querystring.stringify(parameters);
+	console.log(`curl "${qurl}" -X POST -d "${fdata}"`);
+
 	// 执行 HTTP 请求
 	// Executing HTTP request.
 	let result = await requestPost(qurl, parameters) ;

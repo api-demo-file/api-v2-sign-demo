@@ -62,40 +62,38 @@ public class RequestApi {
 	 */
 	public String requestPost(String qurl, String postParams) {
 		PrintWriter out = null;
-        BufferedReader in = null;
-        String result = "";
-        try {
-            URL realUrl = new URL(qurl);
-            URLConnection conn = realUrl.openConnection();
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            out = new PrintWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
-            out.print(postParams);
-            out.flush();
-            in = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream(), "UTF-8"));
-            String line;
-            while ((line = in.readLine()) != null) {
-                result += line;
-            }
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally{
-            try{
-                if(out!=null){
-                    out.close();
-                }
-                if(in!=null){
-                    in.close();
-                }
-            }
-            catch(IOException ex){
-                ex.printStackTrace();
-            }
-        }
-        
-        return result;
+		BufferedReader in = null;
+		String result = "";
+		try {
+			URL realUrl = new URL(qurl);
+			URLConnection conn = realUrl.openConnection();
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			out = new PrintWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
+			out.print(postParams);
+			out.flush();
+			in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+			String line;
+			while ((line = in.readLine()) != null) {
+				result += line;
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (out != null) {
+					out.close();
+				}
+				if (in != null) {
+					in.close();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+
+		return result;
 	}
 	
 	public String getCurlParam(Map<String, String> sArray) throws UnsupportedEncodingException {
